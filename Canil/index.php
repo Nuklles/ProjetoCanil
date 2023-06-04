@@ -16,7 +16,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 95vh;
         }
 
         .background-image {
@@ -26,16 +26,16 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-image: url("https://cdn.discordapp.com/attachments/968520978227408906/1114001196596863016/Banner_projeto_social_adocao_de_animais_amarelo_e_azul.png");
+            background-image: url("https://cdn.discordapp.com/attachments/968520924087328771/1114624732122337350/Banner_projeto_social_adocao_de_animais_amarelo_e_azul_1.png");
             background-size: cover;
             background-repeat: no-repeat;
         }
 
         .form-container {
             border-radius: 10px;
-            padding: 20px; /* Ajuste o valor do padding para diminuir a altura */
+            padding: 5px;
             box-shadow: 0 20px 50px rgba(10, 20, 30, 0.1);
-            max-width: 300px;
+            max-width: 290px;
             width: 100%;
             text-align: center;
             background-color: #3E9AAB;
@@ -138,12 +138,26 @@
             text-align: center;
             margin-top: 20px;
             font-size: 14px;
+            display: flex;
+            justify-content: center;
         }
 
         .link a {
-            color: #fff;
+            color: #FFC041;
             text-decoration: none;
             margin: 0 5px;
+        }
+
+        .link a.btn-alterar-senha {
+            margin-right: 10px;
+        }
+
+        .link a.btn-alterar-senha,
+        .link a.btn-cadastrar {
+            color: #3E9AAB;
+            background-color: #FFC041;
+            padding: 4px 8px;
+            border-radius: 4px;
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -187,20 +201,15 @@
                     <label for="senha">Digite sua senha</label>
                 </div>
                 <div class="form-field">
-                    <input type="submit" name="enviar" value="Entrar" style="background-color: #FFC041; color: #3E9AAB;">
+                    <input type="submit" name="enviar" value="Entrar">
+                </div>
+                <div class="link">
+                    <a href="alterarSenha.php" class="btn-alterar-senha">Esqueci a senha</a>
+                    <a href="cadastrar.php" class="btn-cadastrar">Cadastrar</a>
                 </div>
             </form>
             <div id="mensagem" class="message"></div>
-            <div class="link">
-                <div style="background-color: #FFC041; padding: 5px 10px; border-radius: 4px; display: inline-block;">
-                    <a href="alterarSenha.php" style="color: #3E9AAB; text-decoration: none;">Esqueci a senha</a>
-                </div>
-                <div style="background-color: #FFC041; padding: 5px 10px; border-radius: 4px; display: inline-block;">
-                    <a href="cadastrar.php" style="color: #3E9AAB; text-decoration: none;">Cadastrar</a>
-                </div>
-            </div>
         </div>
     </div>
 </body>
 </html>
-
