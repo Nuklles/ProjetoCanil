@@ -77,8 +77,8 @@ $dados = mysqli_fetch_assoc($query);
 <html>
 <head>
   <title>Editar Perfil</title>    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-2r7BR16rjGytrGcxkkK2YX1op6aJ7WUyrxm0xApfQVQhbiyWqUP3rd76T3+3YcJ3mIr2IRv4yAij3E1TDcnFWA==" crossorigin="anonymous" />
-<style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-2r7BR16rjGytrGcxkkK2YX1op6aJ7WUyrxm0xApfQVQhbiyWqUP3rd76T3+3YcJ3mIr2IRv4yAij3E1TDcnFWA==" crossorigin="anonymous" />
+  <style>
     .background-image {
       position: fixed;
       top: 0;
@@ -101,7 +101,7 @@ $dados = mysqli_fetch_assoc($query);
     }
     .container {
       border-radius: 10px;
-      padding: 80px;
+      padding: 40px;
       box-shadow: 0 20px 50px rgba(10, 20, 30, 0.1);
       max-width: 400px;
       width: 100%;
@@ -167,11 +167,9 @@ $dados = mysqli_fetch_assoc($query);
 <body>
   <form method="POST" action="">
     <div class="container">
-       <h1>Editar Perfil</h1>
-  <form method="POST" action="">
-    <label for="nome">Nome da empresa:</label>
-    <input type="text" id="nome" name="nome" value="<?php echo isset($dados['nome']) ? $dados['nome'] : ''; ?>">
-
+      <h2>Editar Perfil</h2>
+      <label for="nome">Nome da empresa:</label>
+      <input type="text" id="nome" name="nome" value="<?php echo isset($dados['nome']) ? $dados['nome'] : ''; ?>">
     <label for="cnpj">CNPJ:</label>
     <input type="text" id="cnpj" name="cnpj" value="<?php echo isset($dados['cnpj']) ? $dados['cnpj'] : ''; ?>">
 
