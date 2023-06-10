@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+    
+    <a href="menu_empresa.php">Voltar</a>
+    <br><br><br>
+	
+</body>
+</html>
 <?php
 
 session_start();

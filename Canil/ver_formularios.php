@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+    
+    <a href="menu_empresa.php">Voltar</a>
+    <br><br><br>
+	
+</body>
+</html>
 <?php
 session_start();
 include('validar_usuario.php');
@@ -76,7 +88,7 @@ if ($result->num_rows > 0) {
 
     }
 } else {
-    echo "Dados não encontrados.";
+    echo "Nenhum formulário recebido.";
 }
 
 

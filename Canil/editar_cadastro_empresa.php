@@ -43,9 +43,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
        
         $update_senha = "UPDATE login SET senha = '$nova_senha' WHERE email = '$email'";
         mysqli_query($conexao, $update_senha);
+        echo "Dados atualizados com sucesso";
       } else {
         
-        echo "A nova senha e a confirmação não coincidem";
+        echo "A nova senha e a senha de confirmação não coincidem";
       }
     } else {
       

@@ -13,7 +13,7 @@ echo $dado[0];
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Encaminhar pet</title>
+    
 </head>
 <body>
     <h2>Encaminhar pet</h2>

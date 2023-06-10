@@ -1,8 +1,6 @@
 CREATE DATABASE canil;
 USE canil;
 
-drop database canil;
-
 CREATE TABLE cadastro_empresa (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome varchar(300),

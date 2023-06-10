@@ -4,69 +4,30 @@ include('validar_usuario.php');
 include('conexao.php');
 $email = $_SESSION['email'];
 
-$select = "SELECT email FROM login WHERE email = '$email'";
-$query = mysqli_query($conexao, $select);
-$dado = mysqli_fetch_row($query);
-echo $dado[0];
+
 ?>
+ 
+ 
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Inserir poster</title>
-    <style>
-        body {
-            background-color: #fff700;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        h2 {
-            color: #333;
-        }
-
-        form {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        input[type="file"],
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        input[type="submit"] {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-
-        a {
-            color: #333;
-            text-decoration: none;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style2.css">
 </head>
 <body>
-    <h2>Inserir poster</h2>
+    
+    <div class="container">
+    <h2>Insira informações do seu pet</h2>
+  
+    
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $host = 'localhost';
-        $db = 'canil';
-        $user = 'root';
-        $pass = '';
+        
+        $host = 'localhost';  
+        $db = 'canil';  
+        $user = 'root';  
+        $pass = '';  
 
         $conn = new mysqli($host, $user, $pass, $db);
         if ($conn->connect_error) {
@@ -74,23 +35,73 @@ echo $dado[0];
         }
        
     }
-    ?>
-    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
-        <label>Insira a foto do pet</label>        
-        <input type="file" name="imagem"><br><br>  
-        <label>Nome do pet:</label>
-        <input type="text" name="nomepet" required><br><br>
-        <label>Espécie:</label>
-        <input type="text" name="especie" required><br><br>
-        <label>Porte:</label>
-        <input type="text" name="porte" required><br><br>
-        <label>Sexo:</label>
-        <input type="text" name="sexo" required><br><br>
-        <label>Alguma observação? Doença? Deficiência?</label><br><br>
-        <input type="text" name="obs" required><br><br>
-        <input type="submit" value="Enviar">
-    </form>
-    <br><br>
-    <a href="menu_usuario.php">Voltar</a>
-</body>
-</html>
+       
+    
+    if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+        
+        
+        $nomepet = $_POST['nomepet'];
+        $especie = $_POST['especie'];
+        $porte = $_POST['porte'];
+        $sexo = $_POST['sexo'];
+        $obs = $_POST['obs'];
+        
+
+        
+        $nomeImagem = $_FILES['imagem']['name'];
+        $caminhoTemporario = $_FILES['imagem']['tmp_name'];
+        
+    
+        
+        $conteudoImagem = file_get_contents($caminhoTemporario);
+        
+        $selectUser = "SELECT id FROM cadastro_usuario WHERE email = '$email'";
+        $queryUser = mysqli_query($conexao, $selectUser);
+        $rowUser = mysqli_fetch_assoc($queryUser);
+        $id = $rowUser['id'];
+
+    
+        
+        $sql = "INSERT INTO pets (nome, arquivo, nomepet, especie, porte, sexo, obs, id) VALUES (?, ?,'$nomepet', '$especie', '$porte', '$sexo', '$obs', '$id')";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ss", $nomeImagem, $conteudoImagem);
+    
+        
+        if ($stmt->execute()) {
+        echo "Imagem armazenada no banco de dados com sucesso.";
+        } else {
+        echo "Erro ao armazenar a imagem no banco de dados: " . $stmt->error;
+        }
+
+        $stmt->close();
+        $conn->close();
+    }
+    
+                    
+        ?>
+        
+        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
+            <label>Insira a foto do pet</label>        
+            <input type="file" name="imagem"><br> 
+            <label>Nome do pet:</label>
+            <input type="text" name="nomepet"  required><br>
+            <label>Especie:</label>
+            <input type="text" name="especie" required><br>
+            <label>Porte:</label>
+            <input type="text" name="porte"  required><br>
+            <label>Sexo:</label>
+            <input type="text" name="sexo"  required><br>
+            <label>Alguma observação? doença? deficiencia?</label><br>
+            <input type="text" name="obs" required><br>
+            <input type="submit" value="enviar">
+        
+        </form>            
+        </form>
+        <br><br>
+        <a href="menu_usuario.php">Voltar</a>
+        
+    </div>
+   
+       
+    </body>
+    </html>
