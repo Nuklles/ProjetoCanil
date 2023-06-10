@@ -100,27 +100,27 @@ $dados = mysqli_fetch_assoc($query);
       margin: 0;
     }
     .container {
-      border-radius: 10px;
-      padding: 40px;
-      box-shadow: 0 20px 50px rgba(10, 20, 30, 0.1);
-      max-width: 400px;
+      border-radius: 20px;
+      padding: 50px;
+      box-shadow: 0 10px 40px rgba(10, 20, 30, 0.1);
+      max-width: 300px;
       width: 100%;
       text-align: center;
       background-color: #00008B;
     }
     h2 {
-      font-size: 25px;
+      font-size: 30px;
       margin-top: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #FFC041;
-      margin-bottom: 19px;
+      margin-bottom: 20px;
     }
     label {
       font-weight: bold;
       color: #FFC041;
-      font-size: 14px;
+      font-size: 20px;
       display: block;
       text-align: left;
       margin-bottom: 5px;
@@ -132,16 +132,16 @@ $dados = mysqli_fetch_assoc($query);
     input[type="Estado"],
     input[type="Cidade"],
     input[type="Cep"] {
-      width: 100%;
+      width: 90%;
       padding: 8px;
       border: none;
-      border-radius: 4px;
-      margin-bottom: 10px;
+      border-radius: 2px;
+      margin-bottom: 5px;
     }
     input[type="submit"] {
       background-color: #4CAF50;
       color: white;
-      padding: 10px;
+      padding: 15px;
       border: none;
       border-radius: 4px;
       cursor: pointer;
@@ -156,7 +156,7 @@ $dados = mysqli_fetch_assoc($query);
     }
     .success {
       color: #FFFFFF;
-      margin-top: 10px;
+      margin-top: 5px;
     }
     .error {
       color: red;
@@ -203,3 +203,4 @@ $dados = mysqli_fetch_assoc($query);
   </form>
 </body>
 </html>
+
